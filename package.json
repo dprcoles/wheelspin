@@ -18,6 +18,7 @@
   "dependencies": {
     "@fontsource/fira-sans": "^4.5.8",
     "@fontsource/rubik": "^4.5.6",
+    "framer-motion": "^6.3.1",
     "gatsby": "^4.12.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

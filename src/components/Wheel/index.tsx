@@ -7,6 +7,7 @@ interface WheelProps {
 
 const Wheel: React.FC<WheelProps> = ({ options }) => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [isRestarting, setIsRestarting] = useState<boolean>(false);
   const [winner, setWinner] = useState<string>("");
 
   useEffect(() => {
@@ -19,6 +20,7 @@ const Wheel: React.FC<WheelProps> = ({ options }) => {
   const spin = () => {
     const selected = Math.floor(Math.random() * options.length);
     setSelectedIndex(selected);
+    setIsRestarting(false);
 
     setTimeout(() => setWinner(options[selected]), 4000);
   };
@@ -29,6 +31,7 @@ const Wheel: React.FC<WheelProps> = ({ options }) => {
   };
 
   const restart = () => {
+    setIsRestarting(true);
     reset();
     setTimeout(spin, 500);
   };
@@ -59,7 +62,7 @@ const Wheel: React.FC<WheelProps> = ({ options }) => {
           ))}
         </button>
       </div>
-      {selectedIndex === null && (
+      {selectedIndex === null && !isRestarting && (
         <div className="flex pt-8">
           <div className="mx-auto">
             <button

@@ -33,7 +33,7 @@ const AddOption: React.FC<AddOptionProps> = ({ addOption }) => {
         />
       </div>
       <div className="px-4">
-        <Button onClick={() => handleAddOnClick(value)}>
+        <Button onClick={() => handleAddOnClick(value)} disabled={!value}>
           <MdOutlineAddCircleOutline className="mr-2" />
           Add
         </Button>
