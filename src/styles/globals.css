@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "@fontsource/rubik";
+
+@import "./_wheel.css";
+
+html {
+  background-color: theme("colors.dark.background");
+  color: theme("colors.white");
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+}
+

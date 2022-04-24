@@ -1,0 +1,36 @@
+{
+  "name": "wheelspin",
+  "version": "1.0.0",
+  "private": true,
+  "description": "wheelspin",
+  "author": "dcolesDEV<me@danielcoles.co.uk>",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fontsource/fira-sans": "^4.5.8",
+    "@fontsource/rubik": "^4.5.6",
+    "gatsby": "^4.12.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-icons": "^4.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.23",
+    "@types/react": "^17.0.44",
+    "@types/react-dom": "^17.0.15",
+    "autoprefixer": "^10.4.5",
+    "gatsby-plugin-postcss": "^5.12.1",
+    "postcss": "^8.4.12",
+    "tailwindcss": "^3.0.24",
+    "typescript": "^4.6.3"
+  }
+}
