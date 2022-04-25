@@ -10,18 +10,28 @@ import Title from "../components/Title";
 import Wrapper from "../components/Wrapper";
 import { FADE_DOWN, FADE_IN } from "../animations/variants";
 import { shuffle } from "../utils/helpers";
+import { getOptionsFromStorage, setOptionsInStorage } from "../utils/storage";
 
 const IndexPage = () => {
-  const [options, setOptions] = useState<Array<string>>([]);
+  const [options, setOptions] = useState<Array<string>>(
+    getOptionsFromStorage()
+  );
 
-  const addOption = (option: string) => setOptions([...options, option]);
+  const handleSetOptions = (newOptions: Array<string>) => {
+    setOptionsInStorage(newOptions);
+    setOptions(newOptions);
+  };
+
+  const addOption = (option: string) => {
+    handleSetOptions([...options, option]);
+  };
 
   const removeOption = (option: string) =>
-    setOptions([...options].filter(x => x !== option));
+    handleSetOptions([...options].filter(x => x !== option));
 
-  const clearOptions = () => setOptions([]);
+  const clearOptions = () => handleSetOptions([]);
 
-  const shuffleOptions = () => setOptions(shuffle([...options]));
+  const shuffleOptions = () => handleSetOptions(shuffle([...options]));
 
   return (
     <Wrapper>
