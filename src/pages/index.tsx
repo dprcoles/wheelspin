@@ -9,6 +9,7 @@ import Wheel from "../components/Wheel";
 import Title from "../components/Title";
 import Wrapper from "../components/Wrapper";
 import { FADE_DOWN, FADE_IN } from "../animations/variants";
+import { shuffle } from "../utils/helpers";
 
 const IndexPage = () => {
   const [options, setOptions] = useState<Array<string>>([]);
@@ -20,8 +21,7 @@ const IndexPage = () => {
 
   const clearOptions = () => setOptions([]);
 
-  const shuffleOptions = () =>
-    setOptions([...options].sort(() => Math.random() - 0.5));
+  const shuffleOptions = () => setOptions(shuffle([...options]));
 
   return (
     <Wrapper>
@@ -38,10 +38,10 @@ const IndexPage = () => {
               <Title />
             </div>
             <div className="flex space-x-2 p-2">
-              <Button onClick={clearOptions}>
+              <Button onClick={clearOptions} disabled={!options.length}>
                 <ImBin className="mr-2" /> Clear all
               </Button>
-              <Button onClick={shuffleOptions}>
+              <Button onClick={shuffleOptions} disabled={!options.length}>
                 <TiArrowShuffle className="mr-2" /> Shuffle
               </Button>
             </div>
