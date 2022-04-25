@@ -11,6 +11,7 @@ import Wrapper from "../components/Wrapper";
 import { FADE_DOWN, FADE_IN } from "../animations/variants";
 import { shuffle } from "../utils/helpers";
 import { getOptionsFromStorage, setOptionsInStorage } from "../utils/storage";
+import Import from "../components/Import";
 
 const IndexPage = () => {
   const [options, setOptions] = useState<Array<string>>(
@@ -54,6 +55,7 @@ const IndexPage = () => {
               <Button onClick={shuffleOptions} disabled={!options.length}>
                 <TiArrowShuffle className="mr-2" /> Shuffle
               </Button>
+              <Import setOptions={handleSetOptions} />
             </div>
             <AnimatePresence>
               {options.map((option, i) => (
