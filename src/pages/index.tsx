@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TiArrowShuffle } from "react-icons/ti";
 import { ImBin } from "react-icons/im";
 import { AnimatePresence, motion } from "framer-motion";
@@ -14,9 +14,11 @@ import { getOptionsFromStorage, setOptionsInStorage } from "../utils/storage";
 import Import from "../components/Import";
 
 const IndexPage = () => {
-  const [options, setOptions] = useState<Array<string>>(
-    getOptionsFromStorage()
-  );
+  const [options, setOptions] = useState<Array<string>>([]);
+
+  useEffect(() => {
+    setOptions(getOptionsFromStorage());
+  }, []);
 
   const handleSetOptions = (newOptions: Array<string>) => {
     setOptionsInStorage(newOptions);
